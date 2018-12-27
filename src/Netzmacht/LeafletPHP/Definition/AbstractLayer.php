@@ -17,8 +17,9 @@ namespace Netzmacht\LeafletPHP\Definition;
  *
  * @package Netzmacht\LeafletPHP\Definition
  */
-abstract class AbstractLayer extends AbstractDefinition implements Layer
+abstract class AbstractLayer extends AbstractDefinition implements Layer, HasOptions
 {
+    use EventsTrait;
     use LabelTrait;
     use OptionsTrait;
     use PopupTrait;

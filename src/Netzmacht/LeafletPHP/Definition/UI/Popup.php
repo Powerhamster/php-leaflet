@@ -13,10 +13,8 @@
 namespace Netzmacht\LeafletPHP\Definition\UI;
 
 use Netzmacht\LeafletPHP\Definition\AbstractLayer;
-use Netzmacht\LeafletPHP\Definition\HasOptions;
 use Netzmacht\LeafletPHP\Definition\Layer;
 use Netzmacht\LeafletPHP\Definition\Map;
-use Netzmacht\LeafletPHP\Definition\OptionsTrait;
 use Netzmacht\LeafletPHP\Value\LatLng;
 
 /**
@@ -24,10 +22,8 @@ use Netzmacht\LeafletPHP\Value\LatLng;
  *
  * @package Netzmacht\LeafletPHP\Definition\UI
  */
-class Popup extends AbstractLayer implements HasOptions
+class Popup extends AbstractLayer
 {
-    use OptionsTrait;
-
     /**
      * The source layer.
      *
