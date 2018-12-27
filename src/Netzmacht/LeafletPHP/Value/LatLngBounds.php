@@ -92,6 +92,35 @@ class LatLngBounds implements \JsonSerializable
     }
 
     /**
+     * @param LatLng[] $latLngArray
+     *
+     * @return self
+     */
+    public static function fromLatLngArray(array $latLngArray)
+    {
+        $south = $west = $north = $east = null;
+        foreach ($latLngArray as $latLng) {
+            if ($latLng->getLatitude() === 0.0 || $latLng->getLongitude() === 0.0) {
+                continue;
+            }
+            if ($south === null || $latLng->getLatitude() < $south) {
+                $south = $latLng->getLatitude();
+            }
+            if ($north === null || $latLng->getLatitude() > $north) {
+                $north = $latLng->getLatitude();
+            }
+            if ($west === null || $latLng->getLongitude() < $west) {
+                $west = $latLng->getLongitude();
+            }
+            if ($east === null || $latLng->getLongitude() > $east) {
+                $east = $latLng->getLongitude();
+            }
+        }
+
+        return new static(new LatLng($south, $west), new LatLng($north, $east));
+    }
+
+    /**
      * Get south west corner.
      *
      * @return LatLng
