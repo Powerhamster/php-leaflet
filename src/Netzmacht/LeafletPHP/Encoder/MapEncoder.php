@@ -99,17 +99,17 @@ class MapEncoder extends AbstractEncoder
             );
 
             $this->initialized[$hash] = true;
-        } else {
-            foreach ($map->getControls() as $control) {
-                $encoder->encodeReference($control);
-            }
-
-            foreach ($map->getLayers() as $layer) {
-                $encoder->encodeReference($layer);
-            }
-
-            $output->append($this->encodeMethodCalls($map->getMethodCalls(), $encoder));
         }
+        foreach ($map->getControls() as $control) {
+            $encoder->encodeReference($control);
+        }
+
+        foreach ($map->getLayers() as $layer) {
+            $encoder->encodeReference($layer);
+        }
+
+        $output->append($this->encodeMethodCalls($map->getMethodCalls(), $encoder));
+
     }
 
     /**
