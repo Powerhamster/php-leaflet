@@ -132,7 +132,7 @@ class VectorEncoder extends AbstractEncoder
      * @param CircleMarker $circle  The circle object.
      * @param Encoder      $builder The builder.
      *
-     * @return array
+     * @return string
      */
     private function doCircleEncode($type, CircleMarker $circle, Encoder $builder)
     {
@@ -140,7 +140,7 @@ class VectorEncoder extends AbstractEncoder
             '%s = L.%s(%s);',
             $builder->encodeReference($circle),
             $type,
-            $builder->encodeArguments(array($circle->getLatLng(), $circle, $circle->getOptions()))
+            $builder->encodeArguments(array($circle->getLatLng(), $circle->getOptions()))
         );
     }
 }
